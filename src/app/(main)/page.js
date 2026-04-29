@@ -1,7 +1,24 @@
-import Image from "next/image";
+import LeftSideBar from "@/components/homepage/news/LeftSideBar";
+import { getCategories } from "@/lib/data";
 
-export default function Home() {
+
+const Home = async () => {
+
+  const categories = await getCategories();
+  
   return (
-    <h2 className="text-red-600">HomePage</h2>
+    <div className="grid grid-cols-12 gap-6">
+      <div className="col-span-3">
+        <LeftSideBar categories={categories} ></LeftSideBar>
+      </div>
+      <div className="font-bold text-3xl bg-red-100 col-span-6">
+        All news
+      </div>
+      <div className="font-bold text-3xl bg-yellow-100 col-span-3">
+        All social
+      </div>
+    </div>
   );
 }
+
+export default Home;
