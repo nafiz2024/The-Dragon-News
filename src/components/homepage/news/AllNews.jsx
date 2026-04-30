@@ -42,7 +42,7 @@ const AllNews = ({ allNews }) => {
                                     </div>
                                     <div className="">
                                         <p className="text-lg text-[#706F6F] ">{n.details}</p>
-                                        <Link className="text-lg text-[#FF8C47] font-semibold" href="/">Read More</Link>
+                                        <Link className="text-lg text-[#FF8C47] font-semibold" href={`/news/${n._id}`}>Read More</Link>
                                     </div>
                                 </div>
                                 <div className="pt-5 border-t border-[#E7E7E7] flex justify-between items-center">

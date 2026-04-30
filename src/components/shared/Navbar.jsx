@@ -10,9 +10,10 @@ import { usePathname } from 'next/navigation';
 const Navbar = () => {
 
     const pathname = usePathname()
+    const isHomeActive = pathname === "/" || pathname.startsWith("/category");
 
     const navLinks = <>
-        <li><Link className={pathname === '/' ? "border px-3 py-1" : ""} href="/">Home</Link></li>
+        <li><Link className={isHomeActive ? "border px-3 py-1" : ""} href="/">Home</Link></li>
         <li><Link className={pathname === '/about' ? "border px-3 py-1" : ""} href="/about">About</Link></li>
         <li><Link className={pathname === '/career' ? "border px-3 py-1" : ""} href="/career">Career</Link></li>
             </>
