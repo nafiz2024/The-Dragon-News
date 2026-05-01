@@ -1,7 +1,9 @@
 'use client'
 
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import { useForm } from "react-hook-form"
+import { toast } from "react-toastify";
 
 // export const metadata = {
 //   title: "The Dragon News | Register",
@@ -17,8 +19,30 @@ const RegisterPage = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const handleLogicFunc = (data) => {
-    console.log(data)
+  const handleLogicFunc = async (data) => {
+    const { name, photo, email, password } = data;
+
+    const { data: res, error } = await authClient.signUp.email({
+      name: name,
+      image: photo,
+      email: email,
+      password: password,
+      callbackURL: "/",
+    })
+
+    if (error) {
+      toast.error(`${error.message}`, {
+        position: "top-center",
+        autoClose: 3000,
+      })
+    }
+
+    if(res) {
+      toast.success(`Sign Up Successfull`, {
+        position: "top-center",
+        autoClose: 3000,
+      })
+    }
   }
 
   return (
