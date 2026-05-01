@@ -19,7 +19,7 @@ const Navbar = () => {
             </>
 
     return (
-        <div className='flex justify-between items-center mt-10 mb-20'>
+        <div className='flex justify-between items-center pt-10 pb-20'>
             <div className="">
                 <Image src={navLogo} alt='Navbar Logo' width={41} height={41} />
             </div>
@@ -30,8 +30,8 @@ const Navbar = () => {
             </div>
             <div className="flex gap-2.5">
                 <Image src={userAvatar} alt='User Avatar' width={41} height={41} />
-                <div className="btn py-3 px-10 bg-[#403F3F] text-white text-xl font-semibold">
-                    <Link href="/login">Login</Link>
+                <div className="btn bg-[#403F3F] text-white text-xl font-semibold">
+                    <Link className='py-3 px-5' href="/login">Login</Link>
                 </div>
             </div>
         </div>

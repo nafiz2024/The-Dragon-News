@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 export const metadata = {
   title: "The Dragon News | Login",
@@ -10,11 +11,27 @@ export const metadata = {
 };
 
 const LoginPage = () => {
-    return (
-        <div>
-          Login  
+  return (
+    <div className="flex justify-center items-center">
+      <div className="w-[752px] bg-white p-20 rounded-sm mb-14">
+        <h1 className="text-center text-4xl font-semibold text-[#403F3F] pb-14 border-b border-[#E7E7E7] mb-14">Login your account</h1>
+        <fieldset className="fieldset px-4">
+          
+          <label className="label text-xl text[#403F3F] font-semibold pb-3">Email</label>
+          <input type="email" className="input w-full h-13 mb-5 bg-[#F3F3F3] border-none p-5 placeholder:text-[16px]" placeholder="Enter your email address" />
+
+          <label className="label text-xl text[#403F3F] font-semibold pb-3">Password</label>
+          <input type="password" className="input w-full h-13 bg-[#F3F3F3] border-none p-5 placeholder:text-[16px]" placeholder="Enter your password" />
+
+          <Link href="/" className="btn btn-neutral mt-8 p-6 bg-[#403F3F] text-xl font-semibold">Login</Link>
+        </fieldset>
+        <div className="flex gap-2 mt-8 justify-center">
+          <h1 className="text-lg font-semibold text-[#706F6F]">Don't Have An Account ? </h1>
+          <Link className="text-lg font-semibold text-[#FF8C47]" href="/register">Register</Link>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default LoginPage;
