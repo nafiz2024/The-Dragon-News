@@ -1,7 +1,6 @@
 'use client'
 
 import { authClient } from "@/lib/auth-client";
-import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form"
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -31,7 +30,7 @@ const RegisterPage = () => {
       image: photo,
       email: email,
       password: password,
-      callbackURL: "/",
+      callbackURL: "/login",
     })
 
     if (error) {
@@ -45,7 +44,7 @@ const RegisterPage = () => {
       toast.success(`Sign Up Successfull`, {
         position: "top-center",
         autoClose: 3000,
-      })
+      });
     }
   }
 

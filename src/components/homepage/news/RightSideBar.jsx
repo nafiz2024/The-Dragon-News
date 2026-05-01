@@ -1,3 +1,5 @@
+'use client'
+
 import Link from "next/link";
 import { FaFacebookF, FaGithub, FaGoogle, FaTwitter } from "react-icons/fa";
 import { GrInstagram } from "react-icons/gr";
@@ -6,15 +8,29 @@ import classImg from "@/assets/class.png";
 import playgroundImg from "@/assets/playground.png";
 import bannerImg from "@/assets/bg.png";
 import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
 
 const RightSideBar = () => {
+
+    const handleGoogleSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "google",
+        })
+    }
+
+    const handleGithubSignIn = async () => {
+        const data = await authClient.signIn.social({
+            provider: "github",
+        })
+    }
+
     return (
         <div>
             <div className="flex flex-col mb-8">
                 <h1 className="text-xl text-[#403F3F] font-bold mb-5">Login With</h1>
                 <div className="flex flex-col gap-3">
-                    <Link href="" className="btn bg-transparent border-black text-black hover:border-[#2563EB] hover:text-[#2563EB]"><FaGoogle /> Login with Google</Link>
-                    <Link href="" className="btn bg-transparent border-black text-black hover:border-[#2563EB] hover:text-[#2563EB]"><FaGithub /> Login with Github</Link>
+                    <Link onClick={ handleGoogleSignIn } href="" className="btn bg-transparent border-black text-black hover:border-[#2563EB] hover:text-[#2563EB]"><FaGoogle /> Login with Google</Link>
+                    <Link onClick={ handleGithubSignIn } href="" className="btn bg-transparent border-black text-black hover:border-[#2563EB] hover:text-[#2563EB]"><FaGithub /> Login with Github</Link>
                 </div>
             </div>
             <div className="flex flex-col gap-5 mb-5">
@@ -38,8 +54,8 @@ const RightSideBar = () => {
                 <h1 className="text-xl text-[#403F3F] font-semibold mb-5">Q-Zone</h1>
                 <div className="flex flex-col justify-center items-center gap-5">
                     <Image src={swimmingImg} alt="Swimming Image" width={258} height={219} />
-                <Image src={classImg} alt="Swimming Image" width={258} height={219} />
-                <Image src={playgroundImg} alt="Swimming Image" height={219} />
+                    <Image src={classImg} alt="Swimming Image" width={258} height={219} />
+                    <Image src={playgroundImg} alt="Swimming Image" height={219} />
                 </div>
             </div>
             <div className="w-full mt-5">
