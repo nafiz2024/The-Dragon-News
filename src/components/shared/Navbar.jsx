@@ -6,6 +6,7 @@ import React from 'react';
 import userAvatar from "@/assets/user.png"
 import navLogo from "@/assets/nav-logo.png"
 import { usePathname } from 'next/navigation';
+import { authClient } from '@/lib/auth-client';
 
 const Navbar = () => {
 
@@ -16,7 +17,12 @@ const Navbar = () => {
         <li><Link className={isHomeActive ? "border px-3 py-1" : ""} href="/">Home</Link></li>
         <li><Link className={pathname === '/about' ? "border px-3 py-1" : ""} href="/about">About</Link></li>
         <li><Link className={pathname === '/career' ? "border px-3 py-1" : ""} href="/career">Career</Link></li>
-            </>
+    </>
+
+    const { data: session, isPending } = authClient.useSession();
+    const user = session?.user;
+    const avatarSrc = user?.image || userAvatar;
+    const userName = user?.name || "Guest";
 
     return (
         <div className='flex justify-between items-center pt-10 pb-20'>
@@ -28,12 +34,20 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
-            <div className="flex gap-2.5">
-                <Image src={userAvatar} alt='User Avatar' width={41} height={41} />
+
+            {isPending ? ("Loading...") : user ? (
+                <div className="flex items-center gap-2.5">
+                    <h1>Hello, {userName}</h1>
+                    <Image src={avatarSrc} alt='User Avatar' width={41} height={41} />
+                    <div className="btn bg-[#403F3F] text-white text-xl font-semibold">
+                        <Link className='py-3 px-5' href="/login" onClick={async () => await authClient.signOut()}>Logout</Link>
+                    </div>
+                </div>
+            ) : (
                 <div className="btn bg-[#403F3F] text-white text-xl font-semibold">
                     <Link className='py-3 px-5' href="/login">Login</Link>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
