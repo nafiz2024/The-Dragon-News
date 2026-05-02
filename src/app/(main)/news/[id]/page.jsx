@@ -22,11 +22,11 @@ const NewsDetailsPage = async ({ params }) => {
     const news = await getNewsDetailsById(id);
 
     return (
-        <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-9">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-6">
+            <div className="lg:col-span-9">
                 <h1 className=" mb-5">Dragon News</h1>
-                <div className="border border-[#E7E7E7] p-8 rounded-sm">
-                    <div className="flex h-[411px] items-center justify-center overflow-hidden rounded-sm bg-[#F3F3F3] mb-5">
+                <div className="rounded-sm border border-[#E7E7E7] p-4 sm:p-6 lg:p-8">
+                    <div className="mb-5 flex h-[240px] items-center justify-center overflow-hidden rounded-sm bg-[#F3F3F3] sm:h-[320px] lg:h-[411px]">
                         <Image
                             className="h-full w-full object-contain"
                             src={news.thumbnail_url}
@@ -36,12 +36,12 @@ const NewsDetailsPage = async ({ params }) => {
                             sizes="(max-width: 768px) 100vw, 518px"
                         />
                     </div>
-                    <h1 className="text-2xl text-[#403F3F] font-bold leading-11 mb-2">{news.title}</h1>
-                    <p className="text-[#706F6F] mb-8">{news.details}</p>
-                    <Link className="inline-flex items-center gap-3 bg-[#D72050] px-6 py-3 text-xl font-medium text-white" href={`/category/${news.category_id}`} > <FaArrowLeft /> All news in this category</Link>
+                    <h1 className="mb-2 text-xl font-bold text-[#403F3F] sm:text-2xl lg:leading-11">{news.title}</h1>
+                    <p className="mb-8 text-sm text-[#706F6F] sm:text-base">{news.details}</p>
+                    <Link className="inline-flex items-center gap-3 bg-[#D72050] px-4 py-3 text-base font-medium text-white sm:px-6 sm:text-xl" href={`/category/${news.category_id}`} > <FaArrowLeft /> All news in this category</Link>
                 </div>
             </div>
-            <div className="col-span-3">
+            <div className="lg:col-span-3">
                 <RightSideBar />
             </div>
         </div>

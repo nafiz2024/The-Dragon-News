@@ -50,10 +50,10 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <div className="flex justify-center items-center">
-        <div className="w-[752px] bg-white p-20 rounded-sm mb-14">
-          <h1 className="text-center text-4xl font-semibold text-[#403F3F] pb-14 border-b border-[#E7E7E7] mb-14">Register your account</h1>
-          <form onSubmit={handleSubmit(handleLogicFunc)} className="px-4 space-y-5">
+      <div className="flex items-center justify-center pb-10 sm:pb-14">
+        <div className="mb-14 w-full max-w-[752px] rounded-sm bg-white p-5 sm:p-8 lg:p-12 xl:p-20">
+          <h1 className="mb-8 border-b border-[#E7E7E7] pb-8 text-center text-2xl font-semibold text-[#403F3F] sm:mb-10 sm:pb-10 sm:text-3xl lg:mb-14 lg:pb-14 lg:text-4xl">Register your account</h1>
+          <form onSubmit={handleSubmit(handleLogicFunc)} className="space-y-5 px-0 sm:px-4">
             <fieldset className="fieldset">
 
               <legend className="label text-xl text[#403F3F] font-semibold pb-3">Your Name</legend>
@@ -89,7 +89,7 @@ const RegisterPage = () => {
                 {isShowPassword ? <FaEye /> : <FaEyeSlash />}
               </span>
 
-              <button type="submit" className="btn btn-neutral mt-8 p-6 bg-[#403F3F] text-xl font-semibold">Register</button>
+              <button type="submit" className="btn btn-neutral mt-8 w-full p-6 bg-[#403F3F] text-lg font-semibold sm:w-auto sm:text-xl">Register</button>
             </fieldset>
           </form>
         </div>

@@ -22,20 +22,20 @@ const Navbar = () => {
     const userName = user?.name || "Guest";
 
     return (
-        <div className='flex justify-between items-center pt-10 pb-20'>
-            <div className="">
+        <div className='flex flex-col items-center gap-4 pt-6 pb-10 text-center md:flex-row md:justify-between md:pt-10 md:pb-20 md:text-left'>
+            <div className="shrink-0">
                 <Image src={navLogo} alt='Navbar Logo' width={41} height={41} />
             </div>
-            <div className="">
-                <ul className='flex gap-5'>
+            <div className="order-3 md:order-none">
+                <ul className='flex flex-wrap justify-center gap-4 md:gap-5'>
                     {navLinks}
                 </ul>
             </div>
 
             {isPending ? ("Loading...") : user ? (
-                <div className="flex items-center gap-2.5">
-                    <h1>Hello, {userName}</h1>
-                    <Image src={avatarSrc} alt='User Avatar' width={41} height={41} />
+                <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center md:justify-end">
+                    <h1 className="text-sm sm:text-base">Hello, {userName}</h1>
+                    <Image className="rounded-full" src={avatarSrc} alt='User Avatar' width={41} height={41} />
                     <div className="btn bg-[#403F3F] text-white text-xl font-semibold">
                         <Link className='py-3 px-5' href="/login" onClick={async () => await authClient.signOut()}>Logout</Link>
                     </div>

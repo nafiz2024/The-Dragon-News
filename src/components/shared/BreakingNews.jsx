@@ -17,9 +17,9 @@ const news = [
 
 const BreakingNews = () => {
     return (
-        <div className="p-4 flex gap-5 bg-[#F3F3F3]">
-            <button className="bg-[#D72050] py-2.5 px-5 text-white font-medium text-xl">Latest</button>
-            <Marquee className="text-[#403F3F] font-semibold text-lg" pauseOnHover={true} speed={100}>
+        <div className="flex flex-col gap-4 bg-[#F3F3F3] p-4 sm:flex-row sm:items-center sm:gap-5">
+            <button className="w-full bg-[#D72050] px-5 py-2.5 text-lg font-medium text-white sm:w-auto sm:text-xl">Latest</button>
+            <Marquee className="min-w-0 text-base font-semibold text-[#403F3F] sm:text-lg" pauseOnHover={true} speed={100}>
                 {
                     news.map((n) =>
                         <span className="px-10" key={n._id}>{n.title}</span>

@@ -11,14 +11,14 @@ const NewsCategoryPage = async ({ params }) => {
 
     return (
         <div>
-            <div className="grid grid-cols-12 gap-6">
-                <div className="col-span-3">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-12 xl:gap-6">
+                <div className="xl:col-span-3">
                     <LeftSideBar categories={categories} activeId={id} />
                 </div>
-                <div className="col-span-6">
+                <div className="md:col-span-2 xl:col-span-6">
                     <AllNews allNews={allNews} />
                 </div>
-                <div className="col-span-3">
+                <div className="md:col-span-2 xl:col-span-3">
                     <RightSideBar />
                 </div>
             </div>

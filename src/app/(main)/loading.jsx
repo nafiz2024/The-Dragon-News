@@ -1,7 +1,7 @@
 const LoadingPage = () => {
     return (
-        <div className="grid grid-cols-12 gap-6">
-            <div className="col-span-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-12 xl:gap-6">
+            <div className="xl:col-span-3">
                 <div className="rounded-2xl border border-base-300 bg-base-100 p-5 shadow-sm">
                     <div className="mb-5 flex items-center justify-between">
                         <div className="skeleton h-6 w-28"></div>
@@ -18,7 +18,7 @@ const LoadingPage = () => {
                 </div>
             </div>
 
-            <div className="col-span-6">
+            <div className="md:col-span-2 xl:col-span-6">
                 <div className="mb-5 flex items-center justify-between">
                     <div>
                         <div className="skeleton mb-3 h-6 w-44"></div>
@@ -33,7 +33,7 @@ const LoadingPage = () => {
                             key={index}
                             className="overflow-hidden rounded-2xl border border-base-300 bg-base-100 shadow-sm"
                         >
-                            <div className="flex items-center justify-between bg-base-200 px-5 py-4">
+                            <div className="flex flex-col gap-4 bg-base-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
                                 <div className="flex items-center gap-4">
                                     <div className="skeleton h-12 w-12 rounded-full"></div>
                                     <div className="space-y-2">
@@ -56,7 +56,7 @@ const LoadingPage = () => {
                                     <div className="skeleton h-4 w-full"></div>
                                     <div className="skeleton h-4 w-3/4"></div>
                                 </div>
-                                <div className="flex items-center justify-between border-t border-base-300 pt-5">
+                                <div className="flex flex-col gap-3 border-t border-base-300 pt-5 sm:flex-row sm:items-center sm:justify-between">
                                     <div className="flex items-center gap-3">
                                         <div className="skeleton h-4 w-24"></div>
                                         <div className="skeleton h-4 w-10"></div>
@@ -69,7 +69,7 @@ const LoadingPage = () => {
                 </div>
             </div>
 
-            <div className="col-span-3">
+            <div className="md:col-span-2 xl:col-span-3">
                 <div className="space-y-6">
                     <div className="rounded-2xl border border-base-300 bg-base-100 p-5 shadow-sm">
                         <div className="skeleton mb-5 h-6 w-28"></div>
