@@ -4,9 +4,9 @@ const LeftSideBar = ({ categories, activeId }) => {
 
     const category = categories.news_category;
     return (
-        <div>
+        <div className="surface-card p-4">
             <div className="">
-                <h1 className="text-xl text-[#403F3F] font-semibold mb-5">All Category</h1>
+                <h1 className="section-title mb-5 text-xl">All Category</h1>
                 <ul className="grid grid-cols-1 gap-3 text-center sm:grid-cols-2 lg:grid-cols-1">
                     {
                         category.map((c) => {
@@ -14,7 +14,7 @@ const LeftSideBar = ({ categories, activeId }) => {
                                 <li
                                     key={c.category_id}
                                     className={`
-                                    ${activeId === c.category_id && "bg-[#E7E7E7]"} rounded-sm text-base font-semibold text-[#403F3F] hover:bg-[#E7E7E7] sm:text-lg xl:text-xl`}
+                                    ${activeId === c.category_id ? "bg-gradient-to-r from-sky-500 to-blue-600 text-white shadow-md" : "bg-white text-slate-700 hover:bg-sky-50"} rounded-xl border border-slate-200 text-base font-semibold sm:text-lg`}
                                 >
                                     <Link 
                                     href={`/category/${c.category_id ?? c.id}`}

@@ -9,28 +9,28 @@ const AllNews = ({ allNews }) => {
 
     return (
         <div className="flex flex-col gap-5">
-            <h1 className="text-xl text-[#403F3F] font-semibold">News By Category</h1>
+            <h1 className="section-title text-2xl">News By Category</h1>
             <div className="flex flex-col gap-8">
                 {
                     news.map((n) => {
-                        return <div className="" key={n._id}>
-                            <div className="flex flex-col gap-4 rounded-t-xl bg-[#F3F3F3] px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
+                        return <div className="surface-card overflow-hidden transition-transform duration-300 hover:-translate-y-1" key={n._id}>
+                            <div className="flex flex-col gap-4 bg-gradient-to-r from-slate-50 to-sky-50 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
                                 <div className="flex items-center gap-4">
-                                    <Image className="rounded-full" src={n.author.img} alt="Author Image" width={40} height={40} />
+                                    <Image className="rounded-full ring-2 ring-sky-200" src={n.author.img} alt="Author Image" width={40} height={40} />
                                     <div className="">
-                                        <h1 className="text-base font-semibold text-[#403F3F] sm:text-lg">{n.author.name}</h1>
-                                        <h1 className="text-sm text-[#706F6F] sm:text-base">{n.author.published_date}</h1>
+                                        <h1 className="text-base font-semibold text-slate-800 sm:text-lg">{n.author.name}</h1>
+                                        <h1 className="text-sm text-slate-500 sm:text-base">{n.author.published_date}</h1>
                                     </div>
                                 </div>
-                                <div className="flex items-center gap-3 text-2xl text-[#706F6F] sm:text-3xl">
+                                <div className="flex items-center gap-3 text-2xl text-slate-500 sm:text-3xl">
                                     <CiBookmark />
                                     <CiShare2 />
                                 </div>
                             </div>
-                            <div className="flex flex-col gap-5 rounded-b-xl border border-[#E7E7E7] p-4 sm:p-5">
+                            <div className="flex flex-col gap-5 p-4 sm:p-5">
                                 <div className="">
-                                    <h1 className="mb-5 mt-2 text-lg font-bold text-[#403F3F] sm:mt-4 sm:text-xl md:text-2xl">{n.title}</h1>
-                                    <div className="mb-6 flex h-[220px] items-center justify-center overflow-hidden rounded-sm bg-[#F3F3F3] sm:h-[260px] md:h-[320px]">
+                                    <h1 className="mb-5 mt-2 text-lg font-bold text-slate-800 sm:mt-4 sm:text-xl md:text-2xl">{n.title}</h1>
+                                    <div className="mb-6 flex h-[220px] items-center justify-center overflow-hidden rounded-xl bg-slate-100 sm:h-[260px] md:h-[320px]">
                                         <Image
                                             className="h-full w-full object-contain"
                                             src={n.thumbnail_url}
@@ -41,24 +41,24 @@ const AllNews = ({ allNews }) => {
                                         />
                                     </div>
                                     <div className="">
-                                        <p className="text-base text-[#706F6F] sm:text-lg">{n.details}</p>
-                                        <Link className="text-base font-semibold text-[#FF8C47] sm:text-lg" href={`/news/${n._id}`}>Read More</Link>
+                                        <p className="text-base text-slate-600 sm:text-lg">{n.details}</p>
+                                        <Link className="mt-2 inline-block text-base font-semibold text-sky-600 hover:text-sky-700 sm:text-lg" href={`/news/${n._id}`}>Read More</Link>
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-3 border-t border-[#E7E7E7] pt-5 sm:flex-row sm:items-center sm:justify-between">
+                                <div className="flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
                                     <div className="flex items-center gap-3">
-                                        <ul className="flex gap-1 text-[#FF8C47]">
+                                        <ul className="flex gap-1 text-amber-500">
                                             <li><FaStar /></li>
                                             <li><FaStar /></li>
                                             <li><FaStar /></li>
                                             <li><FaStar /></li>
                                             <li><FaStar /></li>
                                         </ul>
-                                        <p className="text-base font-medium text-[#706F6F] sm:text-lg">{n.rating.number}</p>
+                                        <p className="text-base font-medium text-slate-500 sm:text-lg">{n.rating.number}</p>
                                     </div>
                                     <div className="flex items-center gap-3">
-                                        <IoEye className="text-[#706F6F] text-xl" />
-                                        <p className="text-base text-[#706F6F] sm:text-lg">{n.total_view}</p>
+                                        <IoEye className="text-xl text-slate-500" />
+                                        <p className="text-base text-slate-500 sm:text-lg">{n.total_view}</p>
                                     </div>
                                 </div>
                             </div>

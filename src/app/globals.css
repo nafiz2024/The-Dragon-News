@@ -1,3 +1,42 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+:root {
+  --bg-start: #fff4e6;
+  --bg-mid: #eef8ff;
+  --bg-end: #fef2f5;
+  --surface: #ffffff;
+  --surface-soft: #f8fbff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-soft: #dbe7ff;
+  --primary: #ff4f6d;
+  --secondary: #22a6f2;
+  --accent: #f59e0b;
+}
+
+body {
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 0% 0%, #ffe2c9 0%, transparent 30%),
+    radial-gradient(circle at 100% 10%, #d7eeff 0%, transparent 35%),
+    linear-gradient(155deg, var(--bg-start), var(--bg-mid) 45%, var(--bg-end));
+  background-attachment: fixed;
+}
+
+a {
+  transition: all 0.25s ease;
+}
+
+.surface-card {
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(180deg, #ffffff, #fafdff);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(39, 58, 110, 0.08);
+}
+
+.section-title {
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}

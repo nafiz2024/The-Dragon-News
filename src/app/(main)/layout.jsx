@@ -8,7 +8,7 @@ const MainLayout = ({ children }) => {
             <Header />
             <BreakingNews />
             <Navbar />
-            <main>
+            <main className="pb-10">
                 {children}
             </main>
         </div>
