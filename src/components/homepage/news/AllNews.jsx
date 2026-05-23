@@ -6,6 +6,10 @@ import { IoEye } from "react-icons/io5";
 
 const AllNews = ({ allNews }) => {
     const news = allNews;
+    const createPreview = (text = "") => {
+        if (text.length <= 230) return text;
+        return `${text.slice(0, 230)}...`;
+    };
 
     return (
         <div className="flex flex-col gap-5">
@@ -41,8 +45,10 @@ const AllNews = ({ allNews }) => {
                                         />
                                     </div>
                                     <div className="">
-                                        <p className="text-base text-slate-600 sm:text-lg">{n.details}</p>
-                                        <Link className="mt-2 inline-block text-base font-semibold text-sky-600 hover:text-sky-700 sm:text-lg" href={`/news/${n._id}`}>Read More</Link>
+                                        <p className="text-base leading-7 text-slate-600 sm:text-lg">{createPreview(n.details)}</p>
+                                        <Link className="mt-3 inline-flex items-center gap-2 rounded-full bg-sky-50 px-4 py-2 text-base font-semibold text-sky-600 hover:bg-sky-100 hover:text-sky-700 sm:text-lg" href={`/news/${n._id}`}>
+                                            Read Full Story
+                                        </Link>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">

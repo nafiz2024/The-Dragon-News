@@ -12,8 +12,26 @@ const Navbar = () => {
 
     const pathname = usePathname()
 
+    const links = [
+        { href: "/", label: "Home" },
+        { href: "/about", label: "About" },
+        { href: "/career", label: "Career" },
+    ];
+
     const navLinks = <>
-        <li><Link className={`${pathname === "/" ? "bg-white text-sky-600 shadow-sm" : "text-slate-600 hover:text-sky-600"} rounded-full px-4 py-2 font-semibold`} href="/">Home</Link></li>
+        {links.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+                <li key={item.href}>
+                    <Link
+                        className={`${isActive ? "bg-white text-sky-600 shadow-sm" : "text-slate-600 hover:text-sky-600"} rounded-full px-4 py-2 font-semibold`}
+                        href={item.href}
+                    >
+                        {item.label}
+                    </Link>
+                </li>
+            );
+        })}
     </>
 
     const { data: session, isPending } = authClient.useSession();
@@ -23,8 +41,12 @@ const Navbar = () => {
 
     return (
         <div className='surface-card mb-10 flex flex-col items-center gap-4 px-4 py-4 text-center md:flex-row md:justify-between md:px-6 md:text-left'>
-            <div className="shrink-0 rounded-2xl bg-gradient-to-br from-orange-100 to-pink-100 p-2">
+            <div className="flex shrink-0 items-center gap-3 rounded-2xl bg-gradient-to-br from-orange-100 to-pink-100 p-2 pr-4">
                 <Image src={navLogo} alt='Navbar Logo' width={41} height={41} />
+                <div className="text-left">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Live</p>
+                    <p className="text-sm font-bold text-slate-700">Dragon News</p>
+                </div>
             </div>
             <div className="order-3 md:order-none">
                 <ul className='flex flex-wrap items-center justify-center gap-2 rounded-full bg-slate-100 px-3 py-2'>
